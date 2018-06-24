@@ -4,6 +4,7 @@ from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
 import game_function as gf
+from alien import Alien
 
 def run_game():
     # init game and create a screen
@@ -16,6 +17,8 @@ def run_game():
     ship = Ship(settings, screen)
     # create group of bullets
     bullets = Group()
+    # create an alien
+    alien = Alien(settings, screen)
     # start the main loop for the game
     while True:
         # watch for keyboard event and mouse event
@@ -25,6 +28,6 @@ def run_game():
         # update bullets
         gf.update_bullets(bullets)
         # update screen
-        gf.update_screen(settings, screen, ship, bullets)
+        gf.update_screen(settings, screen, ship, alien, bullets)
 
 run_game()
