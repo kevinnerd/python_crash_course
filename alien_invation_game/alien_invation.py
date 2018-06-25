@@ -17,8 +17,10 @@ def run_game():
     ship = Ship(settings, screen)
     # create group of bullets
     bullets = Group()
-    # create an alien
-    alien = Alien(settings, screen)
+    # create a group of aliens
+    aliens = Group()
+    # create fleet
+    gf.create_fleet(settings, screen, aliens)
     # start the main loop for the game
     while True:
         # watch for keyboard event and mouse event
@@ -28,6 +30,6 @@ def run_game():
         # update bullets
         gf.update_bullets(bullets)
         # update screen
-        gf.update_screen(settings, screen, ship, alien, bullets)
+        gf.update_screen(settings, screen, ship, aliens, bullets)
 
 run_game()
